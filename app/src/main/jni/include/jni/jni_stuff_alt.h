@@ -5,7 +5,7 @@
 #include "enc/json.hpp"
 #include "enc/md5.h"
 #include "Oxorany/oxorany.h"
-#include "curl/curl-android-arm64-v8a/include/curl/curl.h"
+#include <curl/curl.h>
 
 JavaVM *jvm;
 
