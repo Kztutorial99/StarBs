@@ -1,0 +1,11 @@
+#pragma once
+
+
+
+
+
+extern unsigned char LogoNew_data[];
+extern unsigned int LogoNew_data_size;
+
+
+

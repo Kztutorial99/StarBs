@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+
+android {
+    namespace "com.starcool.lsmodule"
+    compileSdk 33
+    defaultConfig {
+        applicationId "com.starcool.lsmodule"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "2.9"
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    buildFeatures {
+        buildConfig true
+    }
+    buildTypes {
+        release {
+            shrinkResources false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            shrinkResources false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path file('src/main/jni/CMakeLists.txt')
+            version "3.10.2"
+        }
+    }
+    ndkVersion = '28.2.13676358'
+}
+
+//dependencies must be placed below 'android' brackets to get it work on AIDE
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*classes.jar"])
+
+
+}
+
